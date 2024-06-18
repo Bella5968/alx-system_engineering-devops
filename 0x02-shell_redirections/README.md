@@ -10,3 +10,5 @@ This script displays a confused smiley "(Ôo)".
 This script displays a confused smiley "(Ôo)".
 ## 2-hellofile
 This script displays the content of the /etc/passwd file.
+## 3-twofiles
+This script displays the content of both the /etc/passwd and /etc/hosts files.
