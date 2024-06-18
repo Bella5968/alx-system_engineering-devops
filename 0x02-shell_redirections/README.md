@@ -8,3 +8,5 @@ This script displays a confused smiley "(Ôo)".
 This script displays a confused smiley "(Ôo)".
 ## 1-confused_smiley
 This script displays a confused smiley "(Ôo)".
+## 2-hellofile
+This script displays the content of the /etc/passwd file.
