@@ -1,7 +1,3 @@
 #!/bin/bash
-
-# Split the PATH variable into an array using : as the delimiter
 IFS=':' read -r -a directories <<< "$PATH"
-
-# Print the number of elements in the array
 echo "${#directories[@]}"
