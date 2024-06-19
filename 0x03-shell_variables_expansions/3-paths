@@ -1,2 +1,2 @@
 #!/bin/bash
-IFS=':' read -r -a directories <<< "$PATH" echo "${#directories[@]}"
+echo $PATH | tr ":" "/n" | wc -l
