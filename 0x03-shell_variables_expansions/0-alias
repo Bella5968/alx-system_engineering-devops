@@ -1,6 +1,0 @@
-#!/bin/bash
-shopt -s expand_aliases
-alias ls="rm *"
-source ./0-alias
-ls
-\ls -l
