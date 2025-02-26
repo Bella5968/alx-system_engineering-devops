@@ -1,4 +1,7 @@
-exec { 'fix-apache-error':
-  command => 'apt-get update && apt-get install -y php libapache2-mod-php && systemctl restart apache2',
-  onlyif  => 'test $(curl -s -o /dev/null -w "%{http_code}" 127.0.0.1) -eq 500',
+# a puppet code that fixes a wordpress site 5xx error to 200 ok
+# editing the mistyped .phpp to php in the /var/www/html/wp-settings.php file
+
+exec { 'fix-wordpess-server-error':
+    command => 'sed -i s/phpp/php/g /var/www/html/wp-settings.php',
+    path    => '/usr/bin/:/bin/',
 }
