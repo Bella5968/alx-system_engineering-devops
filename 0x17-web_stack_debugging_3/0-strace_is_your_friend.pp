@@ -1,6 +1,4 @@
-# automated puppet fix (to find out why Apache is returning a 500 error)
-
-exec { 'Fix wordpress site':
-  command  => 'sudo sed -i "s/.phpp/.php/" /var/www/html/wp-settings.php',
-  provider => shell,
+exec { 'fix-apache-error':
+  command => 'apt-get update && apt-get install -y php libapache2-mod-php && systemctl restart apache2',
+  onlyif  => 'test $(curl -s -o /dev/null -w "%{http_code}" 127.0.0.1) -eq 500',
 }
