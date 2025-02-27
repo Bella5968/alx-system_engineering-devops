@@ -4,7 +4,6 @@ Recursive function to fetch all hot post titles from a subreddit
 """
 import requests
 
-
 def recurse(subreddit, hot_list=[], after=None):
     """Recursive function to get all hot post titles from a subreddit"""
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
@@ -15,7 +14,7 @@ def recurse(subreddit, hot_list=[], after=None):
         "limit": 100,
         "after": after
     }
-    
+
     response = requests.get(url, headers=headers, params=params, allow_redirects=False)
 
     if response.status_code != 200:
@@ -25,12 +24,10 @@ def recurse(subreddit, hot_list=[], after=None):
     if not data:
         return None
 
-    # Extract titles from the current page
     children = data.get("children")
     for post in children:
         hot_list.append(post.get("data").get("title"))
 
-    # Check if there's another page (pagination)
     after = data.get("after")
     if after is not None:
         return recurse(subreddit, hot_list, after)
