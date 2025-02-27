@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 """
-Recursive function to fetch all hot post titles from a subreddit
+Recursive function to fetch all hot post titles from a subreddit.
 """
 import requests
 
+
 def recurse(subreddit, hot_list=[], after=None):
-    """Recursive function to get all hot post titles from a subreddit"""
+    """
+    Recursive function to get all hot post titles from a subreddit.
+    """
+    if not subreddit:
+        return None
+
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {
         "User-Agent": "ALX-API-Advanced-Task-2"
@@ -30,7 +36,6 @@ def recurse(subreddit, hot_list=[], after=None):
 
     after = data.get("after")
     if after is not None:
-        return recurse(subreddit, hot_list, after)
+        return recurse(subreddit=subreddit, hot_list=hot_list, after=after)
 
     return hot_list
-
