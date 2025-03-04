@@ -26,9 +26,6 @@ A tiny typo (yes, a single wrong digit) in the Nginx upstream configuration sent
 14:55 UTC - Correct config deployed, typo destroyed.
 15:05 UTC - Service back online. Users rejoiced. On-call engineer went for more coffee.
 😱 The Culprit — Illustrated
-pgsql
-Copy
-Edit
     +--------------------+
     |   Nginx Load Balancer   |
     +--------------------+
