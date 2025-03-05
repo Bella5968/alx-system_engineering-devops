@@ -1,1 +1,1 @@
-Application Server
+app server
